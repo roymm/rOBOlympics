@@ -3,7 +3,7 @@ const { promisify } = require('util');
 
 const creds = require('./client_secret.json');
 
-export const accessSpreadsheet = async () => {
+const getInfo = async () => {
     const doc = new gsheet('18mN2sOgJ2xywXhx0oYzFbeSsB9rok35eQQWHheokCDg');
     await promisify(doc.useServiceAccountAuth)(creds);
     const info = await promisify(doc.getInfo)();
@@ -12,12 +12,12 @@ export const accessSpreadsheet = async () => {
         offset: 1
     });
 
-    let equipos;
+    let equipos = {};
 
     rows.forEach(row => {
         const { ronda, categoria } = row;
-        const equipo = row['equipo' + categoria];
-        let puntos;
+        const equipo = row['equipo' + categoria.toLowerCase()];
+        let puntos = 0;
         switch (categoria) {
             case 'Elementary':
                 for (i = 1; i <= 5; i++) {
@@ -37,15 +37,17 @@ export const accessSpreadsheet = async () => {
             default:
                 break;
         }
+        if (!equipos[equipo]) equipos[equipo] = {};
+        if (!equipos[equipo][ronda]) equipos[equipo][ronda] = {};
         equipos[equipo][ronda] = puntos;
     });
-
     return equipos;
 }
 
 const sacarPuntos = value => {
     try {
-        return value.split('(')[1].split(' ')[0];
+        const number = parseInt(value.split('(')[1].split(' ')[0]);
+        return isNaN(number) ? 0 : number;
     } catch (err) {
         return 0;
     }
