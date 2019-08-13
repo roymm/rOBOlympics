@@ -1,2 +1,2 @@
 # rOBOlympics
-A scoreboard for the nationa robotics olympics
+A scoreboard for the national robotics olympics
