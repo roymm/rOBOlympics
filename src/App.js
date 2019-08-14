@@ -4,6 +4,7 @@ import { makeStyles, ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles'
 import { lime, lightBlue } from '@material-ui/core/colors';
 import Footer from './components/Footer';
+import TablaTotales from './components/TablaTotales';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -26,7 +27,7 @@ const theme = {
   },
 };
 
-function App() {
+const App = () => {
   const classes = useStyles();
 
   return (
@@ -38,7 +39,7 @@ function App() {
           </h3>
         </Toolbar>
       </AppBar>
-      <Grid item xs={12} className={classes.root}>{/* <TablaTotales /> */}</Grid>
+      <Grid item xs={12} className={classes.root}><TablaTotales /></Grid>
       <Footer />
     </ThemeProvider>
   );
