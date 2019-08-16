@@ -62,7 +62,7 @@ export const getTotales = rows => {
 
 const sacarPuntos = value => {
   try {
-    const number = parseInt(value.split('(')[1].split(' ')[0]);
+    const number = parseInt(value.split('[')[1].split(' ')[0]);
     return isNaN(number) ? 0 : number;
   } catch (err) {
     return 0;
