@@ -16,7 +16,7 @@ const TablaTotales = () => {
     setSheetLoaded(true);
   }, [totales]);
 
-  return sheetLoaded && <p>Vea la consola</p>;
+  return sheetLoaded && <p>Vean la consola</p>;
 };
 
 export default TablaTotales;
