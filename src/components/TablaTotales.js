@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getSpreadsheet, getTotales } from '../utils/scoreboard';
+import { Grid } from '@material-ui/core';
+import { getForm, getTotales } from '../utils/scoreboard';
 
 const TablaTotales = () => {
   const [sheetLoaded, setSheetLoaded] = useState(false);
@@ -7,8 +8,10 @@ const TablaTotales = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    getSpreadsheet().then(rows => {
-      setTotales(getTotales(rows));
+    getForm().then(rows => {
+      getTotales(rows).then(_totales => {
+        setTotales(_totales);
+      });
     });
   }, []);
   useEffect(() => {
@@ -16,7 +19,18 @@ const TablaTotales = () => {
     setSheetLoaded(true);
   }, [totales]);
 
-  return sheetLoaded && <p>Vean la consola</p>;
+  return (
+    sheetLoaded && (
+      <div>
+        <h3>Puntajes totales</h3>
+        <Grid item xs={12}>
+          <p>una tabla aqui</p>
+        </Grid>
+        <h3>Otra tabla</h3>
+        <Grid item xs={12} />
+      </div>
+    )
+  );
 };
 
 export default TablaTotales;
