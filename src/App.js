@@ -5,7 +5,6 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import { lime, lightBlue } from '@material-ui/core/colors';
 import Footer from './components/Footer';
 import TablaTotales from './components/TablaTotales';
-import SimpleTable from './components/SimpleTable';
 
 const useStyles = makeStyles(theme => ({
   title: {
@@ -40,7 +39,7 @@ const App = () => {
           </h3>
         </Toolbar>
       </AppBar>
-      <Grid item xs={12} className={classes.root}><TablaTotales /><SimpleTable /></Grid>
+      <Grid item xs={12} className={classes.root}><TablaTotales /></Grid>
       <Footer />
     </ThemeProvider>
   );
