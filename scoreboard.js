@@ -54,4 +54,6 @@ const sacarPuntos = value => {
   }
 };
 
+
+
 getInfo();
