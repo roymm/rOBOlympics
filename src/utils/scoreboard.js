@@ -51,14 +51,14 @@ export const getTotales = rows => {
           case 'Junior':
             for (let i = 1; i <= 3; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
-                row['elementary0' + i]
+                row['junior0' + i]
               );
             }
             break;
           case 'Senior':
             for (let i = 1; i <= 5; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
-                row['elementary0' + i]
+                row['senior0' + i]
               );
             }
             break;
