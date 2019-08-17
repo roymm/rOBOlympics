@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a924a045297b6af5bb0178889b6af97a",
+    "revision": "a0f237b80e1f9aa45530a61cba46fe00",
     "url": "/rOBOlympics/index.html"
   },
   {
-    "revision": "77eca38f0039cec44797",
+    "revision": "bb9dff3b61ae10b187e0",
     "url": "/rOBOlympics/static/css/main.8408a95e.chunk.css"
   },
   {
-    "revision": "60f2966ef4abb23077be",
-    "url": "/rOBOlympics/static/js/2.56cf2277.chunk.js"
+    "revision": "2694dd5d93dabc080979",
+    "url": "/rOBOlympics/static/js/2.d25a43b1.chunk.js"
   },
   {
-    "revision": "77eca38f0039cec44797",
-    "url": "/rOBOlympics/static/js/main.c850742d.chunk.js"
+    "revision": "bb9dff3b61ae10b187e0",
+    "url": "/rOBOlympics/static/js/main.2aa3a051.chunk.js"
   },
   {
     "revision": "ccbf7270dbe70bb0da12",
