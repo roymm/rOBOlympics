@@ -30,9 +30,6 @@ export const getTotales = rows => {
         const { ronda, categoria, email } = row;
         const equipo = row['equipo' + categoria];
 
-        // Si el correo no esta en la lista, ignora este row
-        if (!correos.includes(email)) return;
-
         // Inicializar campos
         if (!totales[categoria]) totales[categoria] = {};
         if (!totales[categoria][equipo]) totales[categoria][equipo] = {};
@@ -42,23 +39,23 @@ export const getTotales = rows => {
         // Iterar por los fields de este row buscando las respuestas y sumando
         switch (categoria) {
           case 'Elementary':
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 13; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
                 row['elementary0' + i]
               );
             }
             break;
           case 'Junior':
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 7; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
-                row['elementary0' + i]
+                row['junior0' + i]
               );
             }
             break;
           case 'Senior':
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 10; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
-                row['elementary0' + i]
+                row['senior0' + i]
               );
             }
             break;
@@ -73,7 +70,8 @@ export const getTotales = rows => {
 
 const sacarPuntos = value => {
   try {
-    const number = parseInt(value.split('[')[1].split(' ')[0]);
+    const number = Number(value.split('[')[1].split(' ')[0]);
+    console.log(value);
     return isNaN(number) ? 0 : number;
   } catch (err) {
     return 0;
