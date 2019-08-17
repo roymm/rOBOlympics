@@ -42,21 +42,21 @@ export const getTotales = rows => {
         // Iterar por los fields de este row buscando las respuestas y sumando
         switch (categoria) {
           case 'Elementary':
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 13; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
                 row['elementary0' + i]
               );
             }
             break;
           case 'Junior':
-            for (let i = 1; i <= 3; i++) {
+            for (let i = 1; i <= 6; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
                 row['junior0' + i]
               );
             }
             break;
           case 'Senior':
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 10; i++) {
               totales[categoria][equipo][ronda] += sacarPuntos(
                 row['senior0' + i]
               );
