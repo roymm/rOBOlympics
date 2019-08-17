@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/rOBOlympics/static/css/main.8408a95e.chunk.css",
-    "main.js": "/rOBOlympics/static/js/main.2aa3a051.chunk.js",
-    "main.js.map": "/rOBOlympics/static/js/main.2aa3a051.chunk.js.map",
+    "main.js": "/rOBOlympics/static/js/main.635d1cf2.chunk.js",
+    "main.js.map": "/rOBOlympics/static/js/main.635d1cf2.chunk.js.map",
     "runtime~main.js": "/rOBOlympics/static/js/runtime~main.e473379b.js",
     "runtime~main.js.map": "/rOBOlympics/static/js/runtime~main.e473379b.js.map",
     "static/js/2.d25a43b1.chunk.js": "/rOBOlympics/static/js/2.d25a43b1.chunk.js",
     "static/js/2.d25a43b1.chunk.js.map": "/rOBOlympics/static/js/2.d25a43b1.chunk.js.map",
     "index.html": "/rOBOlympics/index.html",
-    "precache-manifest.d8e0b31b397a218d06a9472591c5cad6.js": "/rOBOlympics/precache-manifest.d8e0b31b397a218d06a9472591c5cad6.js",
+    "precache-manifest.13e8b6e35c8369466b4e9cd1f66d1015.js": "/rOBOlympics/precache-manifest.13e8b6e35c8369466b4e9cd1f66d1015.js",
     "service-worker.js": "/rOBOlympics/service-worker.js",
     "static/css/main.8408a95e.chunk.css.map": "/rOBOlympics/static/css/main.8408a95e.chunk.css.map"
   }
