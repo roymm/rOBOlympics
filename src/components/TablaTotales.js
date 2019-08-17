@@ -1,12 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { getForm, getTotales } from '../utils/scoreboard';
+import TablaEquipo from './TablaEquipo';
 
 const TablaTotales = () => {
-  const [sheetLoaded, setSheetLoaded] = useState(false);
   const [totales, setTotales] = useState();
+  const [elementary, setElementary] = useState();
+  const [junior, setJunior] = useState();
+  const [senior, setSenior] = useState();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     getForm().then(rows => {
       getTotales(rows).then(_totales => {
@@ -16,20 +19,35 @@ const TablaTotales = () => {
   }, []);
   useEffect(() => {
     console.log('Puntuaciones totales: ', totales);
-    setSheetLoaded(true);
+    if (totales) {
+      setElementary(totales['Elementary']);
+      setJunior(totales['Junior']);
+      setSenior(totales['Senior']);
+    }
   }, [totales]);
 
   return (
-    sheetLoaded && (
-      <div>
-        <h3>Puntajes totales</h3>
-        <Grid item xs={12}>
-          <p>una tabla aqui</p>
-        </Grid>
-        <h3>Otra tabla</h3>
-        <Grid item xs={12} />
-      </div>
-    )
+    <div>
+      <h3>Puntajes totales</h3>
+      <h5>Elementary</h5>
+      <Grid item xs={12}>
+        {elementary !== undefined && (
+          <TablaEquipo equiposCategoria={elementary} numRondas={4} />
+        )}
+      </Grid>
+      <h5>Junior</h5>
+      <Grid item xs={12}>
+        {junior !== undefined && (
+          <TablaEquipo equiposCategoria={junior} numRondas={5} />
+        )}
+      </Grid>
+      <h5>Senior</h5>
+      <Grid item xs={12}>
+        {senior !== undefined && (
+          <TablaEquipo equiposCategoria={senior} numRondas={3} />
+        )}
+      </Grid>
+    </div>
   );
 };
 

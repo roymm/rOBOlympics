@@ -22,40 +22,51 @@ const getSpreadsheet = sheetId => {
 // TODO: Agregar un campo de Total de todas las rondas para cada equipo
 // Basicamente, esta funcion no está aportando casi nada útil
 export const getTotales = rows => {
-  let equipos = {};
+  let totales = {};
   return new Promise(resolve => {
     getSpreadsheet(sheetCorreos).then(dataCorreos => {
       const correos = Object.values(dataCorreos).map(value => value['Correo']);
       Object.values(rows).forEach(row => {
         const { ronda, categoria, email } = row;
+        const equipo = row['equipo' + categoria];
+
         // Si el correo no esta en la lista, ignora este row
         if (!correos.includes(email)) return;
-        const equipo = row['equipo' + categoria];
-        let puntos = 0;
+
+        // Inicializar campos
+        if (!totales[categoria]) totales[categoria] = {};
+        if (!totales[categoria][equipo]) totales[categoria][equipo] = {};
+        if (!totales[categoria][equipo][ronda])
+          totales[categoria][equipo][ronda] = 0;
+
+        // Iterar por los fields de este row buscando las respuestas y sumando
         switch (categoria) {
           case 'Elementary':
             for (let i = 1; i <= 5; i++) {
-              puntos += sacarPuntos(row['elementary0' + i]);
+              totales[categoria][equipo][ronda] += sacarPuntos(
+                row['elementary0' + i]
+              );
             }
             break;
           case 'Junior':
             for (let i = 1; i <= 3; i++) {
-              puntos += sacarPuntos(row['junior0' + i]);
+              totales[categoria][equipo][ronda] += sacarPuntos(
+                row['elementary0' + i]
+              );
             }
             break;
           case 'Senior':
             for (let i = 1; i <= 5; i++) {
-              puntos += sacarPuntos(row['senior0' + i]);
+              totales[categoria][equipo][ronda] += sacarPuntos(
+                row['elementary0' + i]
+              );
             }
             break;
           default:
             break;
         }
-        if (!equipos[equipo]) equipos[equipo] = {};
-        if (!equipos[equipo][ronda]) equipos[equipo][ronda] = 0;
-        equipos[equipo][ronda] = puntos;
       });
-      resolve(equipos);
+      resolve(totales);
     });
   });
 };
