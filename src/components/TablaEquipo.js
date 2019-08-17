@@ -56,9 +56,6 @@ const TablaEquipo = props => {
             <TableCell component='th' scope='row'>
               {nombreEquipo}
             </TableCell>
-            <TableCell align='right'>
-              {equiposCategoria[nombreEquipo]['1'] || '-'}
-            </TableCell>
             {getCells(nombreEquipo)}
           </TableRow>
         ))}

@@ -27,7 +27,7 @@ const TablaTotales = () => {
   }, [totales]);
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       <h3>Puntajes totales</h3>
       <h5>Elementary</h5>
       <Grid item xs={12}>
